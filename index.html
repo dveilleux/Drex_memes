@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script>
+      // Array of video URLs to choose from
+      var videoUrls = [
+        "Videos/video1.mp4",
+        "Videos/video2.mp4",
+        "Videos/video3.mp4",
+        "Videos/video4.mp4",
+        "Videos/video5.mp4"
+      ];
+
+      // Array of image URLs to choose from
+      var imageUrls = [
+        "Images/image1.jpg",
+        "Images/image2.jpg",
+        "Images/image3.jpg",
+        "Images/image4.jpg",
+        "Images/image5.jpg"
+      ];
+
+      // Randomly choose between video or image
+      var isVideo = Math.random() < 0.5;
+      
+      if (isVideo) {
+        // Select a random video URL from the array
+        var randomVideoUrl = videoUrls[Math.floor(Math.random()*videoUrls.length)];
+
+        // Create a video element for the video and add it to the container
+        var video = document.createElement("video");
+        video.id = "media";
+        video.src = randomVideoUrl;
+        video.autoplay = true;
+        video.controls = true;
+        video.style.display = "block";
+        video.style.background = "#000000";
+        video.style.border = "none";
+        video.style.height = "100vh";
+        video.style.width = "100vw";
+
+        document.getElementById("container").appendChild(video);
+      } else {
+        // Select a random image URL from the array
+        var randomImageUrl = imageUrls[Math.floor(Math.random()*imageUrls.length)];
+
+        // Create an image element for the image and add it to the container
+        var img = document.createElement("img");
+        img.id = "media";
+        img.src = randomImageUrl;
+        img.style.display = "block";
+        img.style.border = "none";
+        img.style.height = "100vh";
+        img.style.width = "100vw";
+
+        document.getElementById("container").appendChild(img);
+      }
+    </script>
+  </body>
+</html>
